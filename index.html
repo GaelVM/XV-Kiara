@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis XV Kiara- Invitación Mágica</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/varita-emoji.png">
+
+    <!-- Fuentes -->
+   <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Archivo CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="locked">
+
+    <!-- INTRO: BÚHO + CARTA -->
+<div id="intro-screen">
+  <!-- Búho que vuela por delante -->
+  <div class="intro-owl-wrapper intro-owl-front">
+    <img src="img/buho-carta.png" alt="Búho mensajero" class="intro-owl-img">
+  </div>
+
+  <!-- Búho que queda detrás del sobre -->
+  <div class="intro-owl-wrapper intro-owl-back">
+    <img src="img/buho-carta.png" alt="Búho mensajero" class="intro-owl-img">
+  </div>
+  <!-- Estrellas fugaces -->
+<div id="shooting-stars">
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+</div>
+  <div class="intro-inner">
+    <!-- Sobre grande -->
+    <div class="intro-envelope-wrapper" id="open-letter">
+      <img src="img/carta-magica.png" alt="Carta mágica" class="intro-envelope-img">
+      <div class="intro-glow"></div>
+    </div>
+
+    <div class="intro-fade">
+      <div class="intro-title">Invitación Mágica</div>
+      <p class="intro-text">
+        Brujas y magos, un mensajero especial ha llegado. <br> <strong>Hogwarts</strong> requiere su presencia para una gran celebración
+
+      </p>
+      <div class="intro-action">
+        <span class="icon">📩</span>
+        <span>Toca el sobre para abrir</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animación del escudo al abrir la carta -->
+<div id="crest-animation">
+  <img src="img/escudo-magico.png" alt="Escudo mágico" class="crest-img">
+</div>
+
+</div>
+
+
+    <!-- CONTENIDO REAL DE LA WEB (OCULTO AL INICIO) -->
+    <div id="site-content" class="hidden">
+        <!-- ESTRELLAS FUGACES GLOBALES -->
+<div id="stars-global">
+  <div class="gstar"></div>
+  <div class="gstar"></div>
+  <div class="gstar"></div>
+  <div class="gstar"></div>
+  <div class="gstar"></div>
+</div>
+
+
+        <!-- NAVBAR -->
+        <header>
+            <nav class="nav">
+                <div class="nav-logo">Mis XV • Kiara</div>
+                <div class="nav-menu">
+                    <a href="#detalles">Detalles</a>
+                    <a href="#ubicacion">Ubicación</a>
+                </div>
+            </nav>
+        </header>
+
+        <!-- HERO -->
+              <!-- HERO -->
+        <section class="hero" id="inicio">
+            <!-- Neblina animada -->
+            <div class="fog-layer fog-back"></div>
+            <div class="fog-layer fog-front"></div>
+
+            <div class="hero-inner hero-card">
+                <div class="hero-badge">
+                    <span class="symbol">✶</span>
+                    <span>Invitación Mágica</span>
+                    <span class="symbol">✶</span>
+                </div>
+
+                <h1 class="hero-title">
+                    <span>Mis XV Años</span>
+                    <span class="hero-name">Kiara</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Acompáñame a celebrar mis 15 años junto a mis padres:
+                </p>
+
+                <!-- Tarjeta de padres -->
+                <div class="hero-parents-card">
+                    <h2 class="hero-parents-title">
+                        Amparo Namay Zevallos<br>
+                        Luis Torres Villanueva
+                    </h2>
+                </div>
+
+                <div class="hero-date">
+                    Domingo • 28 de diciembre del 2025 • 7:00 PM
+                </div>
+
+                <div class="hero-cta">
+                    <a href="#rsvp" class="btn btn-primary">Confirmar Asistencia ✉️</a>
+                    <a href="#detalles" class="btn btn-outline">Ver Detalles ✨</a>
+                </div>
+
+                <div class="hero-countdown" id="countdown">
+                    <div class="time-box"><div id="days" class="time-number">00</div><div class="time-label">Días</div></div>
+                    <div class="time-box"><div id="hours" class="time-number">00</div><div class="time-label">Horas</div></div>
+                    <div class="time-box"><div id="minutes" class="time-number">00</div><div class="time-label">Min</div></div>
+                    <div class="time-box"><div id="seconds" class="time-number">00</div><div class="time-label">Seg</div></div>
+                </div>
+
+                <p class="hero-note">
+                    Por favor confirmar asistencia hasta el <strong>20 de diciembre</strong> 🕊️
+                </p>
+            </div>
+        </section>
+
+        <!-- CONFIRMACIÓN POR WHATSAPP -->
+        <section id="rsvp" class="rsvp-whatsapp">
+            <div class="section-inner">
+                <div class="whatsapp-card">
+                    <div class="whatsapp-tag">Confirmación</div>
+                    <h2 class="whatsapp-title">Confirmar asistencia</h2>
+                    <p class="whatsapp-text">
+                        Por favor confirma tu asistencia enviando un mensaje por WhatsApp.
+                        Así podremos reservar tu lugar en esta noche mágica 💖
+                    </p>
+
+                    <!-- CAMBIA EL NÚMERO POR EL REAL -->
+                    <a
+                      class="btn btn-whatsapp"
+                      href="https://wa.me/949352662?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia%20a%20los%20XV%20de%20Kiara%20💫"
+                      target="_blank"
+                    >
+                        Confirmar por WhatsApp 📲
+                    </a>
+
+                    <p class="whatsapp-note">
+                        Fecha límite de confirmación:
+                        <strong>20 de diciembre</strong>.<br>
+                        🎟 Pase para (1) persona
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- DETALLES -->
+              <!-- DETALLES -->
+        <section id="detalles">
+            <div class="section-inner">
+                <h2 class="section-title">Detalles del Evento</h2>
+                <p class="section-subtitle">
+                    Una noche llena de magia, amistad y luz ✨<br>
+                    Aquí encontrarás todo lo que necesitas para llegar al castillo encantado.
+                </p>
+
+                <div class="details-grid">
+                    <!-- Card 1: Recepción y fiesta -->
+                    <div class="card card-soft">
+                        <div class="card-tag">Recepción &amp; Fiesta</div>
+                        <h3>Celebración Mágica</h3>
+
+                        <div class="info-row">
+                            <div class="info-label">Fecha</div>
+                            <div class="info-text">
+                                Domingo 28 de diciembre del 2025
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="info-label">Hora</div>
+                            <div class="info-text">
+                                Desde las <strong>7:00 p.m.</strong>
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="info-label">Lugar</div>
+                            <div class="info-text">
+                                <strong>Nuestra Villa – Eventos y Recepciones</strong><br>
+                                Los Nogales – Huanchaco, Trujillo
+                            </div>
+                        </div>
+
+                        <p class="info-note">
+                            Por favor llega con unos minutos de anticipación para que podamos
+                            recibirte como todo mago y bruja merece 💫
+                        </p>
+                    </div>
+
+                    <!-- Card 2: Dress code y temática -->
+                    <div class="card card-soft">
+                        <div class="card-tag card-tag-soft">Dress code &amp; magia</div>
+                        <h3>Estilo de la Noche</h3>
+
+                        <div class="info-row">
+                            <div class="info-label">Dress code</div>
+                            <div class="info-text">
+                                <strong>Elegante</strong> 
+                            </div>
+                        </div>
+
+                        <div class="info-row">
+                            <div class="info-label">Evitar usar el color</div>
+                            <div class="info-text"><strong>Azul</strong> – será reservado para la quinceañera
+
+.
+                            </div>
+                        </div>
+
+                       
+
+                        <p class="info-note">
+                            No olvides tu mejor sonrisa y muchas ganas de bailar, la magia la ponemos nosotros ✨
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- UBICACIÓN -->
+        <section id="ubicacion">
+            <div class="section-inner">
+                <h2 class="section-title">Ubicación</h2>
+                <p class="section-subtitle">
+                    El castillo te espera en Nuestra Villa. Usa el mapa para llegar sin perderte
+                    entre los bosques encantados.
+                </p>
+
+                <div class="details-grid">
+                    <div class="card map-card card-soft">
+                        <div class="card-tag">Mapa</div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.985905327657!2d-79.06586392544102!3d-8.102916581053805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91ad3d941f496e3d%3A0x240e3e9c0083c19e!2sNuestra%20Villa%20-%20Eventos%20y%20Recepciones!5e0!3m2!1sen!2spe!4v1764995293713!5m2!1sen!2spe"
+                                width="380" height="250" style="border:0;" allowfullscreen=""
+                                loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+                    <div class="card card-soft">
+                        <div class="card-tag card-tag-soft">Dirección</div>
+                        <h3>Nuestra Villa – Huanchaco</h3>
+                        <p class="info-text">
+                            Los Nogales – Huanchaco<br>
+                            Trujillo, Perú
+                        </p>
+                        <p class="info-note">
+                            Si lo prefieres, puedes abrir la ubicación en tu app de mapas favorita.
+                        </p>
+                        <a class="btn btn-outline btn-small" href="https://maps.app.goo.gl/ZDY9n1L91GLH8L397" target="_blank">
+                            Abrir en Google Maps 🗺️
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-inner">
+                <span>Mis XV • Kiara</span><br>
+                <span>✨ Con magia, luz y alegría ✨</span><br>
+                 <!-- ⭐ CRÉDITO -->
+        <span class="footer-credit">
+            Diseñado por 
+             <a href="https://x.com/eljr_tech" target="_blank">Jr 🪄</a>
+        </span>
+             
+            </div>
+        </footer>
+
+      
+
+       
+
+    </div>
+    <!-- MÚSICA DE FONDO -->
+    <audio id="bg-music" src="audio/magia-kiara.mp3" preload="auto" loop></audio>
+
+    <!-- Botón para activar/desactivar música -->
+    <button id="music-toggle" class="music-toggle" aria-label="Activar o pausar música">
+        🔈
+    </button>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        /* INTRO: mostrar sitio */
+        const introScreen = document.getElementById("intro-screen");
+        const crestAnimation = document.getElementById("crest-animation");
+
+        const siteContent = document.getElementById("site-content");
+        const openLetter = document.getElementById("open-letter");
+        const bgMusic = document.getElementById("bg-music");
+        const musicToggle = document.getElementById("music-toggle");
+
+        let introAlreadyOpened = false;
+
+        function showSite() {
+            document.getElementById("stars-global").style.display = "block";
+
+          if (introAlreadyOpened) return;
+          introAlreadyOpened = true;
+
+          // 1) mostrar la animación del escudo
+          if (crestAnimation) {
+            crestAnimation.classList.add("visible");
+          }
+
+          // 2) intentamos iniciar la música (dentro del click)
+          if (bgMusic) {
+            bgMusic.volume = 0.5;
+            bgMusic.play().then(() => {
+              if (musicToggle) musicToggle.textContent = "🔊";
+            }).catch(() => {
+              if (musicToggle) musicToggle.textContent = "🔈";
+            });
+          }
+
+          // 3) después de la animación del escudo, ocultar intro y mostrar el sitio
+          setTimeout(() => {
+            introScreen.classList.add("intro-screen-hide");
+            document.body.classList.remove("locked");
+            document.body.classList.add("main-bg");
+
+            setTimeout(() => {
+              introScreen.style.display = "none";
+              siteContent.classList.remove("hidden");
+            }, 600);
+          }, 1800);
+        }
+
+        openLetter.addEventListener("click", showSite);
+
+        /* Cuenta regresiva */
+        const eventDate = new Date("2025-12-28T19:00:00");
+        function updateCountdown() {
+          const now = new Date();
+          const diff = eventDate - now;
+          if (diff <= 0) return;
+
+          document.getElementById("days").textContent =
+            String(Math.floor(diff / (1000*60*60*24))).padStart(2,"0");
+          document.getElementById("hours").textContent =
+            String(Math.floor(diff / (1000*60*60) % 24)).padStart(2,"0");
+          document.getElementById("minutes").textContent =
+            String(Math.floor(diff / (1000*60) % 60)).padStart(2,"0");
+          document.getElementById("seconds").textContent =
+            String(Math.floor(diff / 1000 % 60)).padStart(2,"0");
+        }
+        setInterval(updateCountdown, 1000);
+
+        // Toggle de música
+        if (musicToggle && bgMusic) {
+          musicToggle.addEventListener("click", () => {
+            if (bgMusic.paused) {
+              bgMusic.play();
+              musicToggle.textContent = "🔊";
+            } else {
+              bgMusic.pause();
+              musicToggle.textContent = "🔈";
+            }
+          });
+        }
+    </script>
+</body>
+</html>
+
