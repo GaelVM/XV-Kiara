@@ -277,7 +277,7 @@ body.main-bg{
   background-color:#02030a;
   background-image:
     linear-gradient(to bottom, rgba(0,0,10,0.75), rgba(0,0,0,0.9)),
-    url("../img/fondo-patronus.jpg");
+    url("../img/fondo-patronus.JPG");
   background-repeat:no-repeat;
   background-size:cover;
   background-position:center top;
