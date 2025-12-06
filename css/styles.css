@@ -366,13 +366,12 @@ header{
 
 /* Tarjeta mágica principal */
 .hero-card{
-  background: radial-gradient(circle at top, rgba(12,15,35,0.96), rgba(4,4,10,0.96));
   border-radius:22px;
   padding:1.8rem 1.4rem 2rem;
   margin:0 auto;
   border:1px solid rgba(255,214,255,0.3);
   box-shadow:0 20px 40px rgba(0,0,0,0.85);
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(1px);
 }
 
 /* Badge superior */
@@ -519,12 +518,103 @@ section{padding:3rem 1rem}
   font-size:.9rem;
   line-height:1.5;
 }
+/* ===== SECCIONES COMO TARJETAS GRANDES ===== */
+
+.section-inner{
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Panel general para cada bloque de secciones de abajo */
+.section-panel{
+  padding: 2.3rem 1.2rem 2.6rem;
+  border-radius: 26px;
+  position: relative;
+
+}
+
+/* Diferentes fondos por sección */
+#detalles{
+  background: radial-gradient(circle at top, rgba(35,19,64,0.9), rgba(4,4,12,0.98));
+}
+#ubicacion{
+  background: radial-gradient(circle at top, rgba(9,32,54,0.9), rgba(3,6,15,0.98));
+}
+/* ======= FONDO SECCIÓN UBICACIÓN ======= */
+#ubicacion{
+  position: relative;
+  z-index: 2;
+  padding: 3rem 1rem 3.5rem;
+  overflow: hidden;
+}
+
+#ubicacion::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+
+  background-image:
+    linear-gradient(to bottom, rgba(8,12,25,0.85), rgba(2,4,12,0.94)),
+    url("../img/ubi.jpg");
+
+  background-size: cover;       /* SE VE COMPLETO EN MÓVIL */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Imagen circular de cada sección */
+.section-illustration{
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 1rem;
+  border-radius: 999px;
+  padding: 4px;
+  background: radial-gradient(circle at top,
+              rgba(255,214,255,0.9),
+              rgba(88,28,135,0.9));
+  box-shadow:
+    0 0 18px rgba(0,0,0,0.9),
+    0 0 22px rgba(255,214,255,0.45);
+}
+.section-illustration img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
+}
+
+/* Variante en tonos azules para la sección de ubicación */
+.section-illustration-blue{
+  background: radial-gradient(circle at top,
+              rgba(191,219,254,0.95),
+              rgba(15,23,42,0.98));
+}
+
+/* Más aire entre tarjetas y que no se vea amontonado */
+.details-grid{
+  display: grid;
+  gap: 1.4rem;
+  margin-top: 1.5rem;
+}
+
+/* Ajuste del iframe de mapa para que respire mejor */
+.map-card iframe{
+  width: 100%;
+  height: 260px;
+  border-radius: 16px;
+  border: 0;
+}
+@media (min-width: 768px){
+  .map-card iframe{
+    height: 320px;
+  }
+}
+
 
 /* ---- DETALLES / UBICACIÓN ---- */
-#detalles, #ubicacion{
-  position:relative;
-  z-index:2;
-}
+
 .details-grid{
   display:grid;
   gap:1rem;
@@ -535,6 +625,56 @@ section{padding:3rem 1rem}
   border-radius:12px;
   border:1px solid #ffffff20;
 }
+/* ---- DETALLES ---- */
+/* ======= FONDO SECCIÓN DETALLES ======= */
+#detalles{
+  position: relative;
+  z-index: 2;
+  padding: 3rem 1rem 3.5rem;
+  overflow: hidden;
+}
+
+#detalles::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+
+  background-image:
+    linear-gradient(to bottom, rgba(20,10,35,0.82), rgba(10,5,20,0.94)),
+    url("../img/detalles.jpg");
+
+  background-size: cover;       /* SE VE COMPLETO EN MÓVIL */
+  background-position: center;  
+  background-repeat: no-repeat;
+}
+/* ======= FONDO SECCIÓN WHATSAPP ======= */
+#rsvp {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 1rem 3.5rem;
+  overflow: hidden;
+}
+
+#rsvp::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+
+  background-image:
+    linear-gradient(to bottom, rgba(10,30,20,0.85), rgba(5,14,8,0.94)),
+    url("../img/rsvp.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+/* El panel interno que ya tienes */
+#detalles 
+
 
 /* Cards suaves */
 .card-soft{
@@ -542,12 +682,7 @@ section{padding:3rem 1rem}
     margin: 0 auto;
     padding: 1.6rem 1.4rem 1.5rem;
     border-radius: 20px;
-  background:linear-gradient(to bottom right,
-    rgba(17,17,25,0.96),
-    rgba(38,21,52,0.96)
-  );
-  border:1px solid rgba(255,214,255,0.35);
-  box-shadow:0 14px 30px rgba(0,0,0,0.6);
+
   position:relative;
   overflow:hidden;
 }
@@ -558,7 +693,7 @@ section{padding:3rem 1rem}
   background:radial-gradient(circle at top left,
     rgba(255,214,255,0.16),
     transparent 60%);
-  opacity:0.9;
+  opacity:1;
   pointer-events:none;
 }
 
@@ -626,15 +761,7 @@ section{padding:3rem 1rem}
   margin:0 auto;
   padding:1.6rem 1.4rem 1.5rem;
   border-radius:20px;
-  background:linear-gradient(
-    to bottom right,
-    rgba(8,22,14,0.96),
-    rgba(4,10,8,0.96)
-  );
-  border:1px solid rgba(110,231,183,0.55);
-  box-shadow:0 18px 36px rgba(0,0,0,0.85);
   position:relative;
-  overflow:hidden;
 }
 .whatsapp-card::before{
   content:"";
