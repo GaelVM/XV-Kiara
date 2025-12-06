@@ -320,85 +320,93 @@
     </button>
 
     <!-- JAVASCRIPT -->
-    <script>
-        /* INTRO: mostrar sitio */
-        const introScreen = document.getElementById("intro-screen");
-        const crestAnimation = document.getElementById("crest-animation");
+   <script>
+    /* INTRO: mostrar sitio */
+    const introScreen = document.getElementById("intro-screen");
+    const crestAnimation = document.getElementById("crest-animation");
 
-        const siteContent = document.getElementById("site-content");
-        const openLetter = document.getElementById("open-letter");
-        const bgMusic = document.getElementById("bg-music");
-        const musicToggle = document.getElementById("music-toggle");
+    const siteContent = document.getElementById("site-content");
+    const openLetter = document.getElementById("open-letter");
+    const bgMusic = document.getElementById("bg-music");
+    const musicToggle = document.getElementById("music-toggle");
 
-        let introAlreadyOpened = false;
+    /* 🌟 NUEVO: sonido mágico CHING */
+    const magicChing = new Audio("audio/ching.mp3");
+    magicChing.volume = 0.8;
 
-        function showSite() {
-            document.getElementById("stars-global").style.display = "block";
+    let introAlreadyOpened = false;
 
-          if (introAlreadyOpened) return;
-          introAlreadyOpened = true;
+    function showSite() {
+        document.getElementById("stars-global").style.display = "block";
 
-          // 1) mostrar la animación del escudo
-          if (crestAnimation) {
+        if (introAlreadyOpened) return;
+        introAlreadyOpened = true;
+
+        /* ▶️ reproducir sonido mágico */
+        magicChing.play().catch(()=>{});  
+
+        // 1) mostrar la animación del escudo
+        if (crestAnimation) {
             crestAnimation.classList.add("visible");
-          }
+        }
 
-          // 2) intentamos iniciar la música (dentro del click)
-          if (bgMusic) {
+        // 2) intentamos iniciar la música (dentro del click)
+        if (bgMusic) {
             bgMusic.volume = 0.5;
             bgMusic.play().then(() => {
-              if (musicToggle) musicToggle.textContent = "🔊";
+                if (musicToggle) musicToggle.textContent = "🔊";
             }).catch(() => {
-              if (musicToggle) musicToggle.textContent = "🔈";
+                if (musicToggle) musicToggle.textContent = "🔈";
             });
-          }
+        }
 
-          // 3) después de la animación del escudo, ocultar intro y mostrar el sitio
-          setTimeout(() => {
+        // 3) después de la animación del escudo, ocultar intro y mostrar el sitio
+        setTimeout(() => {
             introScreen.classList.add("intro-screen-hide");
             document.body.classList.remove("locked");
             document.body.classList.add("main-bg");
 
             setTimeout(() => {
-              introScreen.style.display = "none";
-              siteContent.classList.remove("hidden");
+                introScreen.style.display = "none";
+                siteContent.classList.remove("hidden");
             }, 600);
-          }, 1800);
-        }
+        }, 1800);
+    }
 
-        openLetter.addEventListener("click", showSite);
+    openLetter.addEventListener("click", showSite);
 
-        /* Cuenta regresiva */
-        const eventDate = new Date("2025-12-28T19:00:00");
-        function updateCountdown() {
-          const now = new Date();
-          const diff = eventDate - now;
-          if (diff <= 0) return;
+    /* Cuenta regresiva */
+    const eventDate = new Date("2025-12-28T19:00:00");
+    function updateCountdown() {
+        const now = new Date();
+        const diff = eventDate - now;
+        if (diff <= 0) return;
 
-          document.getElementById("days").textContent =
+        document.getElementById("days").textContent =
             String(Math.floor(diff / (1000*60*60*24))).padStart(2,"0");
-          document.getElementById("hours").textContent =
+        document.getElementById("hours").textContent =
             String(Math.floor(diff / (1000*60*60) % 24)).padStart(2,"0");
-          document.getElementById("minutes").textContent =
+        document.getElementById("minutes").textContent =
             String(Math.floor(diff / (1000*60) % 60)).padStart(2,"0");
-          document.getElementById("seconds").textContent =
+        document.getElementById("seconds").textContent =
             String(Math.floor(diff / 1000 % 60)).padStart(2,"0");
-        }
-        setInterval(updateCountdown, 1000);
+    }
+    setInterval(updateCountdown, 1000);
 
-        // Toggle de música
-        if (musicToggle && bgMusic) {
-          musicToggle.addEventListener("click", () => {
+    // Toggle de música
+    if (musicToggle && bgMusic) {
+        musicToggle.addEventListener("click", () => {
             if (bgMusic.paused) {
-              bgMusic.play();
-              musicToggle.textContent = "🔊";
+                bgMusic.play();
+                musicToggle.textContent = "🔊";
             } else {
-              bgMusic.pause();
-              musicToggle.textContent = "🔈";
+                bgMusic.pause();
+                musicToggle.textContent = "🔈";
             }
-          });
-        }
-    </script>
+        });
+    }
+</script>
+
 </body>
 </html>
 
