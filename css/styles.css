@@ -619,6 +619,7 @@ header {
 }
 
 .hero-countdown {
+  font-weight: 700;
   display: flex;
   gap: 0.5rem;
   justify-content: center;
@@ -932,6 +933,7 @@ section {
 
 /* Texto principal sobre el pergamino */
 #rsvp .hero-subtitle {
+  font-weight: 700;
   max-width: 100%;
   margin: 0 0 0.8rem;
   color: #4b2b16;
@@ -955,6 +957,7 @@ section {
 
 /* Fecha */
 #rsvp .hero-date {
+  font-weight: 700;
   margin-top: 0.4rem;
   margin-bottom: 0.8rem;
   font-size: 0.9rem;
@@ -1016,16 +1019,26 @@ section {
 }
 
 #rsvp .whatsapp-text {
+  font-weight: 700;
   font-size: 0.9rem;
   color: #4b2b16;
   margin-bottom: 1rem;
 }
 
 #rsvp .whatsapp-note {
+  font-weight: 700;
   margin-top: 0.9rem;
   font-size: 0.8rem;
   color: #5b341a;
+  align-items: center; /* Centra verticalmente imagen y texto */
+  gap: 10px; /* Espacio entre la imagen y el texto */
 }
+#rsvp .whatsapp-note .icono {
+  width: 80px; /* Tamaño pequeño para la imagen */
+  
+  /* O puedes usar: max-width: 100%; */
+}
+
 
 /* Botón verde sobre el pergamino */
 #rsvp .btn-whatsapp {
@@ -1058,7 +1071,7 @@ section {
     line-height: 1.7;
   }
   #rsvp .hero-parents-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
   #rsvp .hero-date {
     font-size: 1rem;
@@ -1082,6 +1095,7 @@ section {
     line-height: 1.7;
   }
   #rsvp .whatsapp-note {
+      font-weight: 700;
     font-size: 0.9rem;
   }
   #rsvp .btn-whatsapp {
