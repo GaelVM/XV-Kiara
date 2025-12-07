@@ -190,13 +190,28 @@ body {
 
 .intro-glow {
   position: absolute;
-  inset: -8%;
-    border-radius: 50%;      /* círculo perfecto */
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.256), transparent);
+  inset: -30%;
+  background: radial-gradient(circle,
+      rgba(255, 250, 200, 0.36) 0%,
+      rgba(255, 230, 140, 0.20) 20%,
+      rgba(255, 200, 90, 0.12) 40%,
+      rgba(255, 190, 60, 0.08) 60%,
+      transparent 80%
+  );
+  filter: blur(18px);
+  border-radius: 60% 40% 50% 70% / 65% 45% 55% 60%; /* forma irregular mágica */
   opacity: 0;
-  transition: 0.4s;
+  transition: opacity .5s ease, transform .6s ease;
+  transform: scale(0.9) rotate(0deg);
   pointer-events: none;
 }
+
+.intro-envelope-wrapper:hover .intro-glow {
+  opacity: 1;
+  transform: scale(1.2) rotate(4deg);
+}
+
+
 
 .intro-envelope-wrapper:hover .intro-glow {
   opacity: 1;
@@ -855,6 +870,23 @@ section {
   height: 260px;
   border-radius: 16px;
   border: 0;
+}
+.map-card iframe{
+  position: relative;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(10, 6, 20, 0.35);
+  border: 3px solid rgba(255, 230, 160, 0.55);
+  box-shadow:
+    0 0 12px rgba(255, 230, 160, 0.35),
+    inset 0 0 18px rgba(255, 230, 160, 0.2);
+  animation: mapGlow 3.6s ease-in-out infinite;
+}
+
+@keyframes mapGlow {
+  0%   { box-shadow: 0 0 10px rgba(255,230,160,0.25); }
+  50%  { box-shadow: 0 0 18px rgba(255,230,160,0.5); }
+  100% { box-shadow: 0 0 10px rgba(255,230,160,0.25); }
 }
 
 @media (min-width: 768px) {
