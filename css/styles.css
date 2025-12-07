@@ -65,42 +65,51 @@ body {
 
 /* ======== BÚHOS (DELANTE + DETRÁS) ======== */
 
+/* ======== BÚHOS (DELANTE + DETRÁS) ======== */
+
 .intro-owl-wrapper {
   position: absolute;
   top: 8%;
   left: 50%;
   transform: translateX(-50%);
-  width: 180px;
+  width: 260px;   /* más espacio para centrar el búho grande */
   pointer-events: none;
+  display: flex;          /* centra el búho dentro */
+  justify-content: center;
+  align-items: center;
 }
 
-/* Búho que VUELA por delante */
+/* Búho delantero */
 .intro-owl-front {
   z-index: 5;
   animation: owl-flight-front 2.6s ease-out forwards;
 }
 
-/* Búho que se queda DETRÁS de la carta */
+/* Búho trasero */
 .intro-owl-back {
   z-index: 1;
   opacity: 0;
   animation: owl-appear-back 0.7s ease-out 2.4s forwards,
-    owl-hover 1.4s ease-in-out 3.1s infinite alternate;
+             owl-hover 1.4s ease-in-out 3.1s infinite alternate;
 }
+
+/* Tamaño ajustado */
 .intro-owl-front .intro-owl-img {
-  width: 180%; /* búho delantero más grande */
+  width: 180%;
 }
 
 .intro-owl-back .intro-owl-img {
-  width: 190%; /* búho de atrás más pequeño */
+  width: 160%; /* no más grande que el delantero */
 }
+
+/* Estilo general */
 .intro-owl-wrapper .intro-owl-img {
   filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.8))
-    drop-shadow(0 0 16px rgba(255, 255, 255, 0.4));
+          drop-shadow(0 0 16px rgba(255, 255, 255, 0.4));
   transform-origin: 50% 20%;
 }
 
-/* Aleteo SOLO en el búho de atrás */
+/* Aleteo */
 .intro-owl-back .intro-owl-img {
   animation: owl-flap 0.35s ease-in-out 3.1s infinite alternate;
 }
@@ -164,12 +173,14 @@ body {
   aspect-ratio: 4/3;
   margin: auto;
   opacity: 0;
-  transform: translateY(20px) scale(0.9);
+  /* Empieza un poco más arriba, como si estuviera a la altura de las patas del búho */
+  transform: translateY(-40px) scale(0.9);
+  transform-origin: 50% 0%; /* anima desde arriba (patas) */
   cursor: pointer;
   position: relative;
   z-index: 3;
-  animation: envelope-drop 0.8s ease-out forwards;
-  animation-delay: 2.6s;
+  animation: envelope-from-owl 0.9s ease-out forwards;
+  animation-delay: 2.6s; /* sincronizado con el vuelo del búho frontal */
 }
 
 .intro-envelope-img {
@@ -180,7 +191,8 @@ body {
 .intro-glow {
   position: absolute;
   inset: -8%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent);
+    border-radius: 50%;      /* círculo perfecto */
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.256), transparent);
   opacity: 0;
   transition: 0.4s;
   pointer-events: none;
@@ -190,20 +202,22 @@ body {
   opacity: 1;
 }
 
-@keyframes envelope-drop {
+/* Nueva animación: cae desde los pies del búho */
+@keyframes envelope-from-owl {
   0% {
     opacity: 0;
-    transform: translateY(20px) scale(0.9);
+    transform: translateY(-60px) scale(0.85) rotate(-4deg);
   }
-  60% {
+  40% {
     opacity: 1;
-    transform: translateY(-4px) scale(1);
+    transform: translateY(-25px) scale(1) rotate(-1deg);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0) scale(1) rotate(0deg);
   }
 }
+
 
 /* ======== TEXTO DEL INTRO ======== */
 
