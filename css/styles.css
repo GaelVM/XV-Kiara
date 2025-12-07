@@ -1602,3 +1602,73 @@ footer::before {
   }
 }
 
+/* ============================
+   BRILLOS MÁGICOS ALEATORIOS
+   ============================ */
+
+#magic-sparkles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 4;       /* por encima del contenido pero debajo del botón de música si quieres */
+  overflow: hidden;
+}
+
+/* Cada brillo individual */
+.sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0.5);
+
+  /* brillo circular tipo luz mágica */
+  background: radial-gradient(circle, #ffffff 0%, #ffe9a8 40%, transparent 70%);
+  box-shadow:
+    0 0 8px rgba(255, 255, 255, 0.9),
+    0 0 16px rgba(255, 223, 150, 0.8);
+
+  animation: sparkle-pop 1.8s ease-out forwards;
+}
+
+/* Crucecita de luz encima del punto */
+.sparkle::before,
+.sparkle::after {
+  content: "";
+  position: absolute;
+  inset: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 245, 210, 0.9);
+  border-radius: 999px;
+}
+
+.sparkle::before {
+  width: 2px;
+  height: 14px;
+}
+
+.sparkle::after {
+  width: 14px;
+  height: 2px;
+}
+
+/* Animación: aparece, brilla y se desvanece */
+@keyframes sparkle-pop {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}

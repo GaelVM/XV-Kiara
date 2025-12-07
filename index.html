@@ -74,6 +74,8 @@
 </div>
 
 
+<!-- NUEVA CAPA DE BRILLOS -->
+<div id="magic-sparkles"></div>
         <!-- NAVBAR -->
         <header>
             <nav class="nav">
@@ -357,6 +359,49 @@
             }
         });
     }
+    
+  // ============================
+  // BRILLOS MÁGICOS ALEATORIOS
+  // ============================
+
+  const sparklesLayer = document.getElementById("magic-sparkles");
+
+  function launchSparkle() {
+    if (!sparklesLayer) return;
+
+    const s = document.createElement("div");
+    s.className = "sparkle";
+
+    // tamaño aleatorio
+    const size = 8 + Math.random() * 10;
+    s.style.width = size + "px";
+    s.style.height = size + "px";
+
+    // posición aleatoria en la pantalla
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.top = Math.random() * 100 + "vh";
+
+    // duración aleatoria de la animación
+    const duration = 1.4 + Math.random() * 1.2;
+    s.style.animationDuration = duration + "s";
+
+    sparklesLayer.appendChild(s);
+
+    // limpiar el DOM cuando termina
+    setTimeout(() => {
+      s.remove();
+    }, (duration + 0.3) * 1000);
+
+    // próximo brillo en un intervalo aleatorio (por ratos)
+    const nextDelay = 1500 + Math.random() * 4000; // entre 1.5s y 5.5s
+    setTimeout(launchSparkle, nextDelay);
+  }
+
+  // empezamos los brillos una vez que el sitio ya está visible
+  window.addEventListener("load", () => {
+    // pequeño delay para que no pase todo a la vez con el intro
+    setTimeout(launchSparkle, 4000);
+  });
 </script>
 
 
