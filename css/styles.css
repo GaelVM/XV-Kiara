@@ -87,9 +87,14 @@ body {
   animation: owl-appear-back 0.7s ease-out 2.4s forwards,
     owl-hover 1.4s ease-in-out 3.1s infinite alternate;
 }
+.intro-owl-front .intro-owl-img {
+  width: 180%; /* búho delantero más grande */
+}
 
+.intro-owl-back .intro-owl-img {
+  width: 190%; /* búho de atrás más pequeño */
+}
 .intro-owl-wrapper .intro-owl-img {
-  width: 100%;
   filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.8))
     drop-shadow(0 0 16px rgba(255, 255, 255, 0.4));
   transform-origin: 50% 20%;
