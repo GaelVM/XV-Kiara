@@ -421,7 +421,7 @@ body.main-bg {
         rgba(0, 0, 10, 0.27),
         rgba(0, 0, 0, 0.285)
       ),
-      url("../img/fondo-patronus.jpg");
+      url("../img/fondo-patronus.png");
     background-color: #6b695a;
   }
 }
