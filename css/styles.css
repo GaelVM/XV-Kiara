@@ -557,7 +557,7 @@ header {
 }
 
 .hero-title {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   text-transform: uppercase;
 }
 
@@ -574,7 +574,7 @@ header {
 
 @media (max-width: 480px) {
   .hero-name {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
 }
 
@@ -760,6 +760,7 @@ section {
 
 /* Cards suaves */
 #detalles .card-soft {
+  
   max-width: 420px;
   margin: 0 auto;
   padding: 1.6rem 1.4rem 1.5rem;
@@ -769,6 +770,7 @@ section {
 }
 
 .card-soft::before {
+    text-align: center;
   content: "";
   position: absolute;
   inset: -40%;
@@ -828,9 +830,10 @@ section {
 }
 
 .info-note {
+    text-align: center;
   margin-top: 0.7rem;
   font-size: 1rem;
-  color: #f2dff7;
+  color: #c7a600;
 }
 
 .btn-small {
@@ -1034,7 +1037,7 @@ section {
   gap: 10px; /* Espacio entre la imagen y el texto */
 }
 #rsvp .whatsapp-note .icono {
-  width: 80px; /* Tamaño pequeño para la imagen */
+  width: 90px; /* Tamaño pequeño para la imagen */
   
   /* O puedes usar: max-width: 100%; */
 }
@@ -1042,8 +1045,8 @@ section {
 
 /* Botón verde sobre el pergamino */
 #rsvp .btn-whatsapp {
-  background: #22c55e;
-  border-color: #16a34a;
+  background: #8040007c;
+  border-color: #a39a16;
   color: #022c11;
   font-weight: 600;
   display: block;
