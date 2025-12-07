@@ -1,22 +1,35 @@
-#stars-global {
-  display: none;
-} /* --------- RESET --------- */
+/* ==========================
+   RESET & BASE
+========================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Quicksand", sans-serif;
   background: radial-gradient(circle at top, #121528, #02030a);
   color: #f4f2e9;
 }
+
 .hidden {
   display: none;
 }
+
 .locked {
   overflow: hidden;
-} /* --------- INTRO --------- */
+}
+
+/* ==========================
+   INTRO SCREEN
+========================== */
+
 #intro-screen {
   position: fixed;
   inset: 0;
@@ -36,16 +49,22 @@ body {
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-} /* MODO SOLO ESCUDO AL ABRIR LA CARTA */
+}
+
+/* MODO SOLO ESCUDO AL ABRIR LA CARTA */
 #intro-screen.intro-clean {
-  /* fondo más neutro/oscuro para que destaque el escudo */
   background-image: radial-gradient(circle at center, #05030c 0%, #000000 70%);
-} /* cuando está en modo intro-clean, ocultamos contenido del intro */
+}
+
+/* cuando está en modo intro-clean, ocultamos contenido del intro */
 #intro-screen.intro-clean .intro-inner,
 #intro-screen.intro-clean .intro-owl-wrapper,
 #intro-screen.intro-clean #shooting-stars {
   display: none;
-} /* ======== BÚHOS (DELANTE + DETRÁS) ======== */
+}
+
+/* ======== BÚHOS (DELANTE + DETRÁS) ======== */
+
 .intro-owl-wrapper {
   position: absolute;
   top: 8%;
@@ -53,26 +72,35 @@ body {
   transform: translateX(-50%);
   width: 180px;
   pointer-events: none;
-} /* Búho que VUELA por delante */
+}
+
+/* Búho que VUELA por delante */
 .intro-owl-front {
   z-index: 5;
   animation: owl-flight-front 2.6s ease-out forwards;
-} /* Búho que se queda DETRÁS de la carta */
+}
+
+/* Búho que se queda DETRÁS de la carta */
 .intro-owl-back {
   z-index: 1;
   opacity: 0;
   animation: owl-appear-back 0.7s ease-out 2.4s forwards,
     owl-hover 1.4s ease-in-out 3.1s infinite alternate;
 }
+
 .intro-owl-wrapper .intro-owl-img {
   width: 100%;
   filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.8))
     drop-shadow(0 0 16px rgba(255, 255, 255, 0.4));
   transform-origin: 50% 20%;
-} /* Aleteo SOLO en el búho de atrás */
+}
+
+/* Aleteo SOLO en el búho de atrás */
 .intro-owl-back .intro-owl-img {
   animation: owl-flap 0.35s ease-in-out 3.1s infinite alternate;
-} /* Vuelo búho delantero */
+}
+
+/* Vuelo búho delantero */
 @keyframes owl-flight-front {
   0% {
     transform: translateX(-50%) translate3d(-60vw, -40vh, 0) scale(0.25);
@@ -96,14 +124,12 @@ body {
     filter: blur(0);
   }
 }
+
 @keyframes owl-appear-back {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
+
 @keyframes owl-hover {
   0% {
     transform: translateX(-50%) translateY(0) scale(1);
@@ -112,6 +138,7 @@ body {
     transform: translateX(-50%) translateY(-8px) scale(1.02);
   }
 }
+
 @keyframes owl-flap {
   0% {
     transform: scaleY(1) rotate(0deg);
@@ -122,7 +149,10 @@ body {
   100% {
     transform: scaleY(1.02) rotate(1.5deg);
   }
-} /* ======== SOBRE ======== */
+}
+
+/* ======== SOBRE ======== */
+
 .intro-envelope-wrapper {
   max-width: 300px;
   width: 80%;
@@ -136,10 +166,12 @@ body {
   animation: envelope-drop 0.8s ease-out forwards;
   animation-delay: 2.6s;
 }
+
 .intro-envelope-img {
   width: 100%;
   border-radius: 12px;
 }
+
 .intro-glow {
   position: absolute;
   inset: -8%;
@@ -148,9 +180,11 @@ body {
   transition: 0.4s;
   pointer-events: none;
 }
+
 .intro-envelope-wrapper:hover .intro-glow {
   opacity: 1;
 }
+
 @keyframes envelope-drop {
   0% {
     opacity: 0;
@@ -164,7 +198,10 @@ body {
     opacity: 1;
     transform: translateY(0) scale(1);
   }
-} /* ======== TEXTO DEL INTRO ======== */
+}
+
+/* ======== TEXTO DEL INTRO ======== */
+
 .intro-fade {
   opacity: 0;
   transform: translateY(12px);
@@ -173,6 +210,7 @@ body {
   animation: intro-fade-in 0.7s ease-out forwards;
   animation-delay: 2.9s;
 }
+
 @keyframes intro-fade-in {
   0% {
     opacity: 0;
@@ -182,12 +220,16 @@ body {
     opacity: 1;
     transform: translateY(0);
   }
-} /* Títulos mágicos generales */
+}
+
+/* Títulos mágicos generales */
+
 .intro-title,
 .hero-title,
 .nav-logo {
   font-family: "Cinzel Decorative", "Cinzel", serif;
 }
+
 .intro-title {
   color: #ffd866;
   text-shadow: 0 0 6px rgba(255, 216, 102, 0.8),
@@ -197,18 +239,21 @@ body {
   text-transform: uppercase;
   margin-top: 1rem;
 }
+
 .intro-text {
   font-size: 0.9rem;
   color: #c7c3b8;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
+
 .intro-action {
   font-size: 0.8rem;
   text-transform: uppercase;
   opacity: 0.85;
   animation: pulse 1.6s infinite;
 }
+
 @keyframes pulse {
   0% {
     opacity: 0.8;
@@ -222,7 +267,12 @@ body {
     opacity: 0.8;
     transform: translateY(0);
   }
-} /* ============================ ESTRELLAS FUGACES ============================ */
+}
+
+/* ==========================
+   ESTRELLAS FUGACES INTRO
+========================== */
+
 #shooting-stars {
   position: absolute;
   inset: 0;
@@ -230,6 +280,7 @@ body {
   pointer-events: none;
   z-index: 2;
 }
+
 .star {
   position: absolute;
   width: 2px;
@@ -240,6 +291,7 @@ body {
   opacity: 0;
   animation: shootingStar 3s linear infinite;
 }
+
 .star:nth-child(1) {
   top: 10%;
   left: 5%;
@@ -265,14 +317,13 @@ body {
   left: 10%;
   animation-delay: 3.1s;
 }
+
 @keyframes shootingStar {
   0% {
     opacity: 0;
     transform: translate(0, 0) scale(1);
   }
-  10% {
-    opacity: 1;
-  }
+  10% { opacity: 1; }
   30% {
     opacity: 1;
     transform: translate(120px, 80px) scale(1.8);
@@ -286,7 +337,12 @@ body {
     opacity: 0;
     transform: translate(260px, 200px) scale(0.8);
   }
-} /* ============================ ANIMACIÓN ESCUDO AL ABRIR ============================ */
+}
+
+/* ==========================
+   ANIMACIÓN ESCUDO
+========================== */
+
 #crest-animation {
   position: fixed;
   inset: 0;
@@ -297,15 +353,18 @@ body {
   opacity: 0;
   z-index: 9999;
 }
+
 #crest-animation.visible {
   animation: crest-reveal 1.8s ease-out forwards;
 }
+
 .crest-img {
   max-width: 260px;
   width: 70vw;
   filter: drop-shadow(0 0 12px rgba(0, 0, 0, 0.85))
     drop-shadow(0 0 18px rgba(255, 230, 140, 0.8));
 }
+
 @keyframes crest-reveal {
   0% {
     opacity: 0;
@@ -326,32 +385,51 @@ body {
     opacity: 0;
     transform: scale(1);
   }
-} /* Fondo principal una vez que entras al sitio */
+}
+
+/* ==========================
+   FONDO PRINCIPAL
+========================== */
+
 body.main-bg {
-  background-color: #02030a;
   background-image: linear-gradient(
       to bottom,
-      rgba(0, 0, 10, 0.75),
-      rgba(0, 0, 0, 0.9)
+      rgba(0, 0, 10, 0.27),
+      rgba(0, 0, 0, 0.285)
     ),
-    url("../img/fondo-patronus.JPG");
+    url("../img/inicio.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
 }
+
 @media (min-width: 900px) {
   body.main-bg {
     background-attachment: fixed;
   }
-} /* Ajuste Patronus en móvil */
+}
+
+/* Ajuste Patronus en móvil */
 @media (max-width: 700px) {
   body.main-bg {
+    background-attachment: scroll;
     background-size: contain !important;
     background-repeat: no-repeat;
     background-position: top center;
-    background-color: #02030a;
+    background-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 10, 0.27),
+        rgba(0, 0, 0, 0.285)
+      ),
+      url("../img/fondo-patronus.jpg");
+    background-color: #6b695a;
   }
-} /* ---- NAVBAR ---- */
+}
+
+/* ==========================
+   NAVBAR
+========================== */
+
 header {
   position: fixed;
   top: 0;
@@ -360,115 +438,95 @@ header {
   backdrop-filter: blur(6px);
   z-index: 50;
 }
+
 .nav {
   display: flex;
   justify-content: space-between;
   padding: 1rem;
 }
+
 .nav-logo {
   color: #fdf8ff;
   text-transform: uppercase;
   letter-spacing: 0.15em;
 }
+
 .nav-menu {
   display: none;
 }
+
 @media (min-width: 768px) {
   .nav-menu {
     display: flex;
     gap: 1rem;
   }
 }
+
 .nav-menu a {
   color: #c4a8ff;
   text-decoration: none;
   font-size: 0.9rem;
 }
+
 .nav-menu a:hover {
   text-decoration: underline;
-} /* ---- HERO ---- */
+}
+
+/* ==========================
+   HERO
+========================== */
+
 .hero {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5rem 1rem 2rem;
+  padding: 6rem 1rem 3rem;
   text-align: center;
   position: relative;
-  overflow: hidden; /* neblina */
-} /* Neblina */
-.fog-layer {
-  position: absolute;
-  inset: -20%;
-  pointer-events: none;
-  background: radial-gradient(
-      circle at 20% 0%,
-      rgba(255, 255, 255, 0.15),
-      transparent 55%
-    ),
-    radial-gradient(
-      circle at 80% 100%,
-      rgba(255, 255, 255, 0.18),
-      transparent 60%
-    );
-  mix-blend-mode: screen;
-  opacity: 0.35;
+  overflow: hidden;
 }
-.fog-back {
-  animation: fog-move-back 40s linear infinite;
-}
+
 .fog-front {
   opacity: 0.5;
   animation: fog-move-front 26s linear infinite;
 }
+
 @keyframes fog-move-back {
-  0% {
-    transform: translate3d(-20px, 0, 0);
-  }
-  50% {
-    transform: translate3d(20px, 10px, 0);
-  }
-  100% {
-    transform: translate3d(-20px, 0, 0);
-  }
+  0% { transform: translate3d(-20px, 0, 0); }
+  50% { transform: translate3d(20px, 10px, 0); }
+  100% { transform: translate3d(-20px, 0, 0); }
 }
+
 @keyframes fog-move-front {
-  0% {
-    transform: translate3d(20px, 5px, 0);
-  }
-  50% {
-    transform: translate3d(-30px, -10px, 0);
-  }
-  100% {
-    transform: translate3d(20px, 5px, 0);
-  }
-} /* Contenedor del hero */
+  0% { transform: translate3d(20px, 5px, 0); }
+  50% { transform: translate3d(-30px, -10px, 0); }
+  100% { transform: translate3d(20px, 5px, 0); }
+}
+
 .hero-inner {
   max-width: 420px;
   width: 100%;
-} /* Tarjeta mágica principal */
-.hero-card {
-  border-radius: 22px;
-  padding: 1.8rem 1.4rem 2rem;
-  margin: 0 auto;
- 
-} /* Badge superior */
+}
+
 .hero-badge {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.75rem;
+  font-size: 0.85rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #ffd6ff;
+  color: #fffd04;
   opacity: 0.9;
   margin-bottom: 0.8rem;
-} /* Título hero */
+}
+
 .hero-title {
   font-size: 2.5rem;
   text-transform: uppercase;
 }
+
 .hero-name {
   font-family: "Cinzel Decorative", "Cinzel", serif;
   color: #ffd866;
@@ -479,37 +537,37 @@ header {
   text-shadow: 0 0 6px rgba(255, 216, 102, 0.9),
     0 0 18px rgba(255, 216, 102, 0.6);
 }
+
 @media (max-width: 480px) {
   .hero-name {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
   }
-} /* Subtítulo */
+}
+
 .hero-subtitle {
   color: #f2e9ff;
   margin: 1rem auto 0.6rem;
   max-width: 300px;
-} /* Tarjeta padres */
+}
+
 .hero-parents-card {
   margin: 0.8rem auto 1rem;
   padding: 0.9rem 1rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 214, 255, 0.4);
-  background: radial-gradient(
-    circle at top,
-    rgba(255, 214, 255, 0.1),
-    rgba(10, 8, 20, 0.9)
-  );
 }
+
 .hero-parents-title {
-  font-size: 1rem;
+  font-family: "Cinzel Decorative", "Cinzel", serif;
+  font-size: 1.2rem;
   line-height: 1.5;
   color: #ffffff;
-} /* Fecha */
+}
+
 .hero-date {
   margin-bottom: 1rem;
   font-size: 0.9rem;
   color: #ffe9b8;
-} /* CTA */
+}
+
 .hero-cta {
   display: flex;
   flex-wrap: wrap;
@@ -518,18 +576,21 @@ header {
   margin-bottom: 1.2rem;
   margin-top: 1rem;
 }
+
 @media (max-width: 420px) {
   .hero-cta .btn {
     width: 100%;
     text-align: center;
   }
-} /* Cuenta regresiva */
+}
+
 .hero-countdown {
   display: flex;
   gap: 0.5rem;
   justify-content: center;
   margin-top: 1rem;
 }
+
 .time-box {
   background: #ffffff10;
   padding: 0.6rem;
@@ -537,15 +598,20 @@ header {
   width: 70px;
   text-align: center;
 }
+
 .time-number {
   color: #d4af37;
   font-size: 1.3rem;
-} /* Nota */
+}
+
 .hero-note {
   margin-top: 0.9rem;
   font-size: 0.8rem;
   color: #f2dff7;
-} /* Botones */
+}
+
+/* BOTONES GENÉRICOS */
+
 .btn {
   border: 1px solid #d4af3780;
   padding: 0.7rem 1.6rem;
@@ -554,140 +620,80 @@ header {
   letter-spacing: 0.14em;
   font-size: 0.8rem;
   display: inline-block;
+  text-decoration: none;
 }
+
 .btn-primary {
   background: #d4af37;
   color: #000;
 }
+
 .btn-outline {
-  border-color: #8b5cf6;
-  color: #e5d4ff;
+  color: #c7a600;
 }
+
 .btn-outline:hover {
   background: rgba(139, 92, 246, 0.16);
-} /* ---- SECCIONES GENERALES ---- */
+}
+
+/* ==========================
+   SECCIONES GENERALES
+========================== */
+
 section {
   padding: 3rem 1rem;
 }
+
 .section-title {
   font-family: "Cinzel Decorative", "Cinzel", serif;
   text-align: center;
   margin-bottom: 0.3rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: #ffe6ff;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  color: #3a1404;
 }
-.section-subtitle {
+
+.section-title-direccion {
+  font-family: "Cinzel Decorative", "Cinzel", serif;
   text-align: center;
-  color: #c7c3b8;
-  margin-bottom: 1.5rem;
-  font-size: 0.9rem;
-  line-height: 1.5;
-} /* ===== SECCIONES COMO TARJETAS GRANDES ===== */
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fef7ff;
+}
+
+/* Subtítulo reutilizado para texto más largo */
+.section-subtitle {
+  max-width: 620px;
+  margin: 0.2rem auto 1.8rem;
+  text-align: center;
+  color: #3a1404;
+  font-size: 1.3rem;
+  line-height: 1.6;
+}
+
 .section-inner {
   max-width: 960px;
   margin: 0 auto;
-} /* Panel general para cada bloque de secciones de abajo */
+}
+
 .section-panel {
-  padding: 2.3rem 1.2rem 2.6rem;
+  padding: 6.5rem 1.2rem 6rem;
   border-radius: 26px;
   position: relative;
-} /* Diferentes fondos por sección */
-#detalles {
-  background: radial-gradient(
-    circle at top,
-    rgba(35, 19, 64, 0.9),
-    rgba(4, 4, 12, 0.98)
-  );
 }
-#ubicacion {
-  background: radial-gradient(
-    circle at top,
-    rgba(9, 32, 54, 0.9),
-    rgba(3, 6, 15, 0.98)
-  );
-} /* ======= FONDO SECCIÓN UBICACIÓN ======= */
-#ubicacion {
-  position: relative;
-  z-index: 2;
-  padding: 3rem 1rem 3.5rem;
-  overflow: hidden;
-}
-#ubicacion::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(8, 12, 25, 0.85),
-      rgba(2, 4, 12, 0.94)
-    ),
-    url("../img/ubi.jpg");
-  background-size: cover; /* SE VE COMPLETO EN MÓVIL */
-  background-position: center;
-  background-repeat: no-repeat;
-} /* Imagen circular de cada sección */
-.section-illustration {
-  width: 110px;
-  height: 110px;
-  margin: 0 auto 1rem;
-  border-radius: 999px;
-  padding: 4px;
-  background: radial-gradient(
-    circle at top,
-    rgba(255, 214, 255, 0.9),
-    rgba(88, 28, 135, 0.9)
-  );
-  box-shadow: 0 0 18px rgba(0, 0, 0, 0.9), 0 0 22px rgba(255, 214, 255, 0.45);
-}
-.section-illustration img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: inherit;
-  display: block;
-} /* Variante en tonos azules para la sección de ubicación */
-.section-illustration-blue {
-  background: radial-gradient(
-    circle at top,
-    rgba(191, 219, 254, 0.95),
-    rgba(15, 23, 42, 0.98)
-  );
-} /* Más aire entre tarjetas y que no se vea amontonado */
-.details-grid {
-  display: grid;
-  gap: 1.4rem;
-  margin-top: 1.5rem;
-} /* Ajuste del iframe de mapa para que respire mejor */
-.map-card iframe {
-  width: 100%;
-  height: 260px;
-  border-radius: 16px;
-  border: 0;
-}
-@media (min-width: 768px) {
-  .map-card iframe {
-    height: 320px;
-  }
-} /* ---- DETALLES / UBICACIÓN ---- */
-.details-grid {
-  display: grid;
-  gap: 1rem;
-}
-.card {
-  background: #11111190;
-  padding: 1rem;
-  border-radius: 12px;
-  border: 1px solid #ffffff20;
-} /* ---- DETALLES ---- */ /* ======= FONDO SECCIÓN DETALLES ======= */
+
+/* ==========================
+   DETALLES
+========================== */
+
 #detalles {
   position: relative;
   z-index: 2;
   padding: 3rem 1rem 3.5rem;
   overflow: hidden;
 }
+
 #detalles::before {
   content: "";
   position: absolute;
@@ -695,36 +701,30 @@ section {
   z-index: -1;
   background-image: linear-gradient(
       to bottom,
-      rgba(20, 10, 35, 0.82),
+      rgba(20, 10, 35, 0),
       rgba(10, 5, 20, 0.94)
     ),
-    url("../img/detalles.jpg");
-  background-size: cover; /* SE VE COMPLETO EN MÓVIL */
-  background-position: center;
-  background-repeat: no-repeat;
-} /* ======= FONDO SECCIÓN WHATSAPP ======= */
-#rsvp {
-  position: relative;
-  z-index: 2;
-  padding: 3rem 1rem 3.5rem;
-  overflow: hidden;
-}
-#rsvp::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(10, 30, 20, 0.85),
-      rgba(5, 14, 8, 0.94)
-    ),
-    url("../img/rsvp.jpg");
+    url("../img/detalles.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-} /* El panel interno que ya tienes */
-#detalles /* Cards suaves */ .card-soft {
+}
+
+.details-grid {
+  max-width: 620px;
+    margin: 0.2rem auto 1.8rem;
+  display: grid;
+  gap: 1.4rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 12px;
+}
+
+/* Cards suaves */
+#detalles .card-soft {
   max-width: 420px;
   margin: 0 auto;
   padding: 1.6rem 1.4rem 1.5rem;
@@ -732,18 +732,20 @@ section {
   position: relative;
   overflow: hidden;
 }
+
 .card-soft::before {
   content: "";
   position: absolute;
   inset: -40%;
   background: radial-gradient(
     circle at top left,
-    rgba(255, 214, 255, 0.16),
+    rgba(255, 214, 255, 0),
     transparent 60%
   );
   opacity: 1;
   pointer-events: none;
-} /* Etiquetas */
+}
+
 .card-tag {
   display: inline-block;
   font-size: 0.7rem;
@@ -756,15 +758,18 @@ section {
   color: #ffd6ff;
   margin-bottom: 0.6rem;
 }
+
 .card-tag-soft {
   background: rgba(255, 229, 239, 0.16);
   border-color: rgba(255, 203, 230, 0.8);
-} /* Títulos dentro de tarjetas */
+}
+
 .card h3 {
   font-family: "Cinzel Decorative", "Cinzel", serif;
   font-size: 1.05rem;
   margin-bottom: 0.6rem;
-} /* Filas info */
+}
+
 .info-row {
   display: flex;
   gap: 0.6rem;
@@ -772,6 +777,7 @@ section {
   margin: 0.4rem 0;
   font-size: 0.9rem;
 }
+
 .info-label {
   min-width: 90px;
   font-size: 0.7rem;
@@ -780,22 +786,264 @@ section {
   color: #ffd6ff;
   opacity: 0.9;
 }
+
 .info-text {
+  font-size: 0.9rem;
   color: #fef7ff;
 }
+
 .info-note {
   margin-top: 0.7rem;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #f2dff7;
-} /* Botón pequeño */
+}
+
 .btn-small {
   margin-top: 0.7rem;
   padding: 0.45rem 1.2rem;
   font-size: 0.75rem;
-} /* ---- CONFIRMACIÓN WHATSAPP ---- */
-.rsvp-whatsapp {
-  padding: 2.5rem 1rem 1.5rem;
 }
+
+/* ==========================
+   UBICACIÓN
+========================== */
+
+#ubicacion {
+  position: relative;
+  z-index: 2;
+  padding: 6rem 1rem 3.5rem;
+  overflow: hidden;
+}
+
+#ubicacion::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(8, 12, 25, 0),
+      rgba(2, 4, 12, 0.94)
+    ),
+    url("../img/ubi.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.map-card iframe {
+  width: 100%;
+  height: 260px;
+  border-radius: 16px;
+  border: 0;
+}
+
+@media (min-width: 768px) {
+  .map-card iframe {
+    height: 320px;
+  }
+}
+
+/* ==========================
+   SECCIÓN RSVP (PERGAMINO)
+========================== */
+
+#rsvp {
+  position: relative;
+  z-index: 2;
+  padding: 7.5rem 1rem 3.5rem;
+  overflow: hidden;
+  color: #3b2714; /* tinta sobre pergamino */
+}
+
+#rsvp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(10, 30, 20, 0),
+      rgba(13, 14, 5, 0)
+    ),
+    url("../img/rsvp.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#rsvp .section-inner {
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1.5rem 1.5rem 2.5rem;
+}
+
+/* Texto principal sobre el pergamino */
+#rsvp .hero-subtitle {
+  max-width: 100%;
+  margin: 0 0 0.8rem;
+  color: #4b2b16;
+  font-size: 0.95rem;
+}
+
+/* Padres: solo texto, sin caja */
+#rsvp .hero-parents-card {
+  margin: 0.8rem auto 0.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+#rsvp .hero-parents-title {
+  font-family: "Cinzel Decorative", "Cinzel", serif;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #2a170b;
+}
+
+/* Fecha */
+#rsvp .hero-date {
+  margin-top: 0.4rem;
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+  color: #5b341a;
+}
+
+/* Countdown tipo “impreso” */
+#rsvp .hero-countdown {
+  justify-content: center;
+  gap: 1.1rem;
+  margin-top: 0.8rem;
+}
+
+#rsvp .time-box {
+  background: transparent;
+  border: none;
+  padding: 0;
+  width: auto;
+}
+
+#rsvp .time-number {
+  font-family: "Cinzel", serif;
+  font-size: 1.3rem;
+  color: #3b2714;
+}
+
+#rsvp .time-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #7a5030;
+}
+
+/* Nota */
+#rsvp .hero-note {
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: #4b2b16;
+}
+
+/* Bloque WhatsApp estilo texto */
+#rsvp .whatsapp-card {
+  margin-top: 1.6rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  position: static;
+}
+
+#rsvp .whatsapp-card::before {
+  content: none;
+}
+
+#rsvp .whatsapp-title {
+  font-family: "Cinzel Decorative", "Cinzel", serif;
+  font-size: 1.1rem;
+  margin-bottom: 0.4rem;
+  color: #2a170b;
+}
+
+#rsvp .whatsapp-text {
+  font-size: 0.9rem;
+  color: #4b2b16;
+  margin-bottom: 1rem;
+}
+
+#rsvp .whatsapp-note {
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  color: #5b341a;
+}
+
+/* Botón verde sobre el pergamino */
+#rsvp .btn-whatsapp {
+  background: #22c55e;
+  border-color: #16a34a;
+  color: #022c11;
+  font-weight: 600;
+  display: block;
+  text-align: center;
+}
+
+/* Sutil realce de texto pergamino (opcional) */
+#rsvp .hero-subtitle,
+#rsvp .hero-parents-title,
+#rsvp .hero-date,
+#rsvp .whatsapp-text,
+#rsvp .whatsapp-note,
+#rsvp .whatsapp-title {
+  text-shadow: 0 1px 1px rgba(255, 248, 220, 0.6);
+}
+
+/* En móvil, más aire arriba */
+@media (max-width: 600px) {
+  #rsvp {
+    padding-top: 6rem;
+  }
+
+  #rsvp .hero-subtitle {
+    font-size: 1.2rem;
+    line-height: 1.7;
+  }
+  #rsvp .hero-parents-title {
+    font-size: 1.6rem;
+  }
+  #rsvp .hero-date {
+    font-size: 1rem;
+  }
+  #rsvp .time-number {
+    font-size: 1.5rem;
+  }
+  #rsvp .time-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+  }
+  #rsvp .hero-note {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  #rsvp .whatsapp-title {
+    font-size: 1.2rem;
+  }
+  #rsvp .whatsapp-text {
+    font-size: 0.98rem;
+    line-height: 1.7;
+  }
+  #rsvp .whatsapp-note {
+    font-size: 0.9rem;
+  }
+  #rsvp .btn-whatsapp {
+    font-size: 0.9rem;
+    padding: 0.85rem 1.6rem;
+  }
+}
+
+/* ==========================
+   WHATSAPP CARD GENÉRICA
+   (por si la usas en otras secciones)
+========================== */
+
 .whatsapp-card {
   max-width: 420px;
   margin: 0 auto;
@@ -803,6 +1051,7 @@ section {
   border-radius: 20px;
   position: relative;
 }
+
 .whatsapp-card::before {
   content: "";
   position: absolute;
@@ -815,6 +1064,7 @@ section {
   opacity: 0.8;
   pointer-events: none;
 }
+
 .whatsapp-tag {
   display: inline-block;
   font-size: 0.7rem;
@@ -827,16 +1077,19 @@ section {
   color: #bbf7d0;
   margin-bottom: 0.5rem;
 }
+
 .whatsapp-title {
   font-family: "Cinzel Decorative", "Cinzel", serif;
   font-size: 1.15rem;
   margin-bottom: 0.4rem;
 }
+
 .whatsapp-text {
   font-size: 0.9rem;
   color: #e5fff3;
   margin-bottom: 1rem;
 }
+
 .btn-whatsapp {
   background: #22c55e;
   border-color: #16a34a;
@@ -845,24 +1098,33 @@ section {
   display: block;
   text-align: center;
 }
+
 .btn-whatsapp:hover {
   background: #16a34a;
 }
+
 .whatsapp-note {
   margin-top: 0.8rem;
   font-size: 0.8rem;
   color: #d1fae5;
-} /* ---- MODAL / GALERÍA (por si luego la usas) ---- */
+}
+
+/* ==========================
+   GALERÍA / MODAL
+========================== */
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 0.6rem;
 }
+
 .gallery-item {
   width: 100%;
   border-radius: 12px;
   cursor: pointer;
 }
+
 .modal {
   display: none;
   position: fixed;
@@ -872,13 +1134,16 @@ section {
   align-items: center;
   z-index: 200;
 }
+
 .modal.open {
   display: flex;
 }
+
 .modal-content {
   max-width: 90%;
   border-radius: 12px;
 }
+
 .modal-close {
   position: absolute;
   top: 20px;
@@ -886,7 +1151,12 @@ section {
   font-size: 2rem;
   cursor: pointer;
   color: white;
-} /* ---- FORM (si en el futuro agregas) ---- */
+}
+
+/* ==========================
+   FORM BASE (por si lo usas)
+========================== */
+
 .rsvp-form {
   display: grid;
   gap: 1rem;
@@ -894,6 +1164,7 @@ section {
   padding: 1.5rem;
   border-radius: 12px;
 }
+
 input,
 select,
 textarea {
@@ -903,10 +1174,21 @@ textarea {
   border: 1px solid #ffffff20;
   background: #0004;
   color: white;
-} /* ---- FOOTER ---- */
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
 footer {
   position: relative;
+  text-align: center;
+  padding: 1rem;
+  color: #c7c3b8;
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 1px solid rgba(255, 214, 255, 0.3);
 }
+
 footer::before {
   content: "";
   position: absolute;
@@ -922,20 +1204,43 @@ footer::before {
   );
   box-shadow: 0 0 12px rgba(255, 214, 255, 0.8);
 }
-footer {
-  text-align: center;
-  padding: 1rem;
-  color: #c7c3b8;
-  background: rgba(0, 0, 0, 0.8);
-  border-top: 1px solid rgba(255, 214, 255, 0.3);
-}
+
 .footer-inner span:first-child {
   font-family: "Cinzel Decorative", "Cinzel", serif;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-a {
-} /* ---- BOTÓN MÚSICA ---- */
+
+.footer-credit {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 0.75rem;
+  color: #e7d6ff;
+  opacity: 0.85;
+}
+
+.footer-credit a {
+  color: #ffd6ff;
+  font-family: "Cinzel Decorative", "Cinzel", serif;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 214, 255, 0.35);
+  padding-bottom: 2px;
+  transition: all 0.3s ease;
+}
+
+.footer-credit a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 4px rgba(255, 214, 255, 0.8),
+    0 0 10px rgba(255, 214, 255, 0.6),
+    0 0 18px rgba(255, 214, 255, 0.4);
+  border-bottom-color: #ffd6ff;
+}
+
+/* ==========================
+   BOTÓN MÚSICA
+========================== */
+
 .music-toggle {
   position: fixed;
   right: 1rem;
@@ -954,16 +1259,24 @@ a {
   cursor: pointer;
   backdrop-filter: blur(8px);
 }
+
 .music-toggle:hover {
   background: rgba(0, 0, 0, 0.85);
-} /* ============================ ESTRELLAS FUGACES GLOBALES ============================ */
+}
+
+/* ==========================
+   ESTRELLAS FUGACES GLOBALES
+========================== */
+
 #stars-global {
+  display: none;          /* la muestra JS cambiando a block */
   position: fixed;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
   z-index: 1; /* debajo del contenido pero encima del fondo Patronus */
-} /* Estrella global */
+}
+
 .gstar {
   position: absolute;
   width: 2px;
@@ -973,7 +1286,8 @@ a {
   box-shadow: 0 0 6px 2px rgba(255, 255, 255, 0.8);
   border-radius: 50%;
   animation: gstar 4s linear infinite;
-} /* Posiciones distintas */
+}
+
 .gstar:nth-child(1) {
   top: 5%;
   left: 20%;
@@ -999,14 +1313,13 @@ a {
   left: 30%;
   animation-delay: 3.4s;
 }
+
 @keyframes gstar {
   0% {
     opacity: 0;
     transform: translate(0, 0) scale(1);
   }
-  10% {
-    opacity: 1;
-  }
+  10% { opacity: 1; }
   35% {
     opacity: 1;
     transform: translate(150px, 90px) scale(1.7);
@@ -1020,57 +1333,29 @@ a {
     transform: translate(300px, 220px) scale(0.8);
   }
 }
-.footer-credit {
-  display: block;
-  margin-top: 0.6rem;
-  font-size: 0.75rem;
-  color: #e7d6ff;
-  opacity: 0.85;
-}
-.footer-credit a {
-  color: #ffd6ff;
-  font-family: "Cinzel Decorative", "Cinzel", serif;
-  letter-spacing: 0.08em;
-  text-decoration: none;
-  border-bottom: 1px solid rgba(255, 214, 255, 0.35);
-  padding-bottom: 2px;
-  transition: all 0.3s ease;
-} /* Efecto mágico al pasar el mouse */
-.footer-credit a:hover {
-  color: #ffffff;
-  text-shadow: 0 0 4px rgba(255, 214, 255, 0.8),
-    0 0 10px rgba(255, 214, 255, 0.6), 0 0 18px rgba(255, 214, 255, 0.4);
-  border-bottom-color: #ffd6ff;
-}
-
 
 /* ==========================
-   LAYOUT TIPO LANDING SEGUNDA PARTE
-   ========================== */
+   LAYOUT TIPO LANDING (EXTRA)
+========================== */
 
-/* Bloques grandes tipo sección */
 .section-block {
   padding: 3.2rem 1.4rem;
   position: relative;
   z-index: 2;
 }
 
-/* Mensaje principal, fondo más sobrio */
 .section-block-dark {
   background: radial-gradient(circle at top, rgba(8, 7, 20, 0.92), #02030a);
 }
 
-/* Sección detalles con fondo suave */
 .section-block-cards {
   background: radial-gradient(circle at top, rgba(26, 15, 44, 0.92), #050814);
 }
 
-/* Sección mapa, un poco más azulada */
 .section-block-map {
   background: radial-gradient(circle at top, rgba(9, 21, 46, 0.95), #02040d);
 }
 
-/* Overline pequeñito arriba del título */
 .section-overline {
   text-align: center;
   font-size: 0.75rem;
@@ -1081,7 +1366,6 @@ a {
   margin-bottom: 0.4rem;
 }
 
-/* Título principal grande de cada bloque */
 .section-title-big {
   font-family: "Cinzel Decorative", "Cinzel", serif;
   text-align: center;
@@ -1093,7 +1377,6 @@ a {
   margin-bottom: 0.8rem;
 }
 
-/* Texto lead del mensaje principal */
 .section-lead {
   max-width: 620px;
   margin: 0 auto 1.8rem;
@@ -1103,17 +1386,8 @@ a {
   line-height: 1.7;
 }
 
-/* Reutilizamos la subtitle pero centrada y un poco más ancha */
-.section-subtitle {
-  max-width: 620px;
-  margin: 0.2rem auto 1.8rem;
-  text-align: center;
-  color: #d8d3e6;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
+/* Píldoras de info */
 
-/* Píldoras de info (fecha, hora, lugar) */
 .pill-row {
   display: flex;
   flex-direction: column;
@@ -1126,7 +1400,11 @@ a {
   border-radius: 999px;
   padding: 0.6rem 1rem;
   border: 1px solid rgba(255, 214, 255, 0.35);
-  background: radial-gradient(circle at top left, rgba(255, 214, 255, 0.15), transparent 65%);
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 214, 255, 0.15),
+    transparent 65%
+  );
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
@@ -1147,7 +1425,8 @@ a {
   color: #fef7ff;
 }
 
-/* Tarjetas tipo 3 columnas (se adaptan a 1 en móvil) */
+/* Grid 3 columnas */
+
 .section-grid-3 {
   display: grid;
   gap: 1.4rem;
@@ -1160,7 +1439,6 @@ a {
   }
 }
 
-/* Tarjetas de información */
 .info-card {
   background: rgba(4, 4, 14, 0.92);
   border-radius: 22px;
@@ -1175,7 +1453,11 @@ a {
   content: "";
   position: absolute;
   inset: -40%;
-  background: radial-gradient(circle at top left, rgba(255, 214, 255, 0.14), transparent 65%);
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 214, 255, 0.14),
+    transparent 65%
+  );
   opacity: 0.85;
   pointer-events: none;
 }
@@ -1225,7 +1507,7 @@ a {
   opacity: 0.9;
 }
 
-/* Botón de WhatsApp a lo ancho dentro de la tarjeta */
+/* Botón WhatsApp ancho */
 .btn-whatsapp-wide {
   background: #22c55e;
   border: 1px solid #16a34a;
@@ -1244,7 +1526,7 @@ a {
   background: #16a34a;
 }
 
-/* Layout del mapa y texto al lado */
+/* Layout del mapa */
 .map-layout {
   display: grid;
   gap: 1.4rem;
@@ -1274,12 +1556,8 @@ a {
   padding: 0.6rem 0.2rem;
 }
 
-/* Ajuste botones secundarios dentro de tarjetas/mapa */
-.section-block .btn {
-  text-decoration: none;
-}
+/* Ajustes mobile layout extra */
 
-/* En móviles, que todo se vea centrado y con buen espaciado */
 @media (max-width: 600px) {
   .section-block {
     padding-inline: 1.1rem;
@@ -1293,3 +1571,34 @@ a {
     flex: 1 1 100%;
   }
 }
+
+/* ==========================
+   DIVISOR ENTRE SECCIONES
+========================== */
+.section-divider {
+  width: 100%;
+  height: 140px;
+  position: relative;
+  z-index: 10;
+
+  /* El truco: el divisor se superpone por ARRIBA y por ABAJO */
+  margin-top: -60px;  /* sube dentro de la sección anterior */
+  margin-bottom: -60px; /* baja dentro de la siguiente sección */
+
+  /* Fondo mágico */
+  /* background-image: url("../img/divider.png"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Suavizado de bordes */
+  pointer-events: none;
+}
+@media (max-width: 600px) {
+  .section-divider {
+    height: 90px;
+    margin-top: -40px;
+    margin-bottom: -40px;
+  }
+}
+
