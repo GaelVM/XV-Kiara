@@ -72,7 +72,7 @@
   <div class="gstar"></div>
   <div class="gstar"></div>
 </div>
-
+<div id="snitch"></div>
 
 <!-- NUEVA CAPA DE BRILLOS -->
 <div id="magic-sparkles"></div>
@@ -402,6 +402,72 @@
     // pequeño delay para que no pase todo a la vez con el intro
     setTimeout(launchSparkle, 4000);
   });
+  /* ============================
+   SNITCH VOLADORA
+   ============================ */
+(function () {
+  const snitch = document.getElementById("snitch");
+  if (!snitch) return;
+
+  let x = -100;
+  let y = window.innerHeight / 2;
+
+  // Colocar la snitch al inicio SALIENDO de un costado
+  function placeInitial() {
+    const fromLeft = Math.random() < 0.5; // true = izquierda, false = derecha
+
+    y = window.innerHeight * (0.15 + Math.random() * 0.7); // 15%–85% de alto
+
+    if (fromLeft) {
+      x = -100; // fuera por la izquierda
+    } else {
+      x = window.innerWidth + 100; // fuera por la derecha
+    }
+
+    snitch.style.left = x + "px";
+    snitch.style.top = y + "px";
+  }
+
+  function moveSnitch() {
+    // 🔥 Más velocidad
+    const speed = 220 + Math.random() * 180; // px por segundo aprox
+
+    // Nuevo punto de destino en pantalla
+    const newX = Math.random() * window.innerWidth;
+    const newY = window.innerHeight * (0.1 + Math.random() * 0.8);
+
+    const dx = newX - x;
+    const dy = newY - y;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    const duration = distance / speed; // tiempo de animación en segundos
+
+    snitch.style.transition = `left ${duration}s linear, top ${duration}s linear`;
+    snitch.style.left = newX + "px";
+    snitch.style.top = newY + "px";
+
+    x = newX;
+    y = newY;
+
+    // Menos tiempo muerto entre trayectorias
+    const extraDelay = 100 + Math.random() * 500;
+    setTimeout(moveSnitch, duration * 1000 + extraDelay);
+  }
+
+  // Recolocar cuando cambie el tamaño de pantalla (por si rota el celular)
+  window.addEventListener("resize", () => {
+    x = Math.min(x, window.innerWidth + 100);
+    y = Math.min(y, window.innerHeight + 100);
+  });
+
+  // Espera a que la intro termine un poco y luego aparece
+  setTimeout(() => {
+    placeInitial();
+    setTimeout(moveSnitch, 600);
+  }, 2500);
+})();
+
+
 </script>
 
 
